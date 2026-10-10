@@ -12,16 +12,16 @@
             theme: {
                 extend: {
                     colors: {
-                        darkbg: '#0c0f17',
-                        cardbg: '#141824',
-                        cardhover: '#1b2131',
-                        bordercolor: '#22293d',
+                        darkbg: '#0a0c10',
+                        cardbg: '#11151c',
+                        cardhover: '#171c26',
+                        bordercolor: '#1e2638',
                         cyanaccent: '#54D8F5',
                         cyanhover: '#3bc5e4',
-                        mutetext: '#8c95a8'
+                        mutetext: '#7d889b'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'Poppins', 'system-ui', '-apple-system', 'sans-serif']
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
                     }
                 }
             }
@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for clean icons -->
+    <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         ::-webkit-scrollbar {
@@ -39,10 +39,10 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #0c0f17;
+            background: #0a0c10;
         }
         ::-webkit-scrollbar-thumb {
-            background: #22293d;
+            background: #1e2638;
             border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb:hover {
@@ -50,14 +50,14 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0c0f17;
+            background-color: #0a0c10;
             color: #f0f3f6;
         }
         .fade-in {
-            animation: fadeIn 0.25s ease-in-out forwards;
+            animation: fadeIn 0.2s ease-out forwards;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
+            from { opacity: 0; transform: translateY(3px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -70,145 +70,147 @@
         <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden transition-opacity"></div>
 
         <!-- Sidebar -->
-        <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-50 w-72 bg-cardbg border-r border-bordercolor flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0">
+        <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-50 w-64 bg-cardbg border-r border-bordercolor flex flex-col transition-transform duration-200 -translate-x-full md:translate-x-0">
             <!-- App Brand -->
-            <div class="p-5 border-b border-bordercolor flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent shadow-sm">
-                        <i class="fa-solid fa-lightbulb text-base"></i>
+            <div class="p-4 border-b border-bordercolor flex items-center justify-between">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent shadow-sm">
+                        <i class="fa-solid fa-lightbulb text-sm"></i>
                     </div>
                     <div>
-                        <h1 class="font-bold text-base tracking-tight text-white">RL Ideas</h1>
-                        <p class="text-xs text-mutetext">TikTok Content Hub</p>
+                        <h1 class="font-bold text-sm tracking-tight text-white">RL Ideas</h1>
+                        <p class="text-[10px] text-mutetext">TikTok Content Hub</p>
                     </div>
                 </div>
                 <button id="closeSidebarBtn" class="md:hidden text-mutetext hover:text-white p-1">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                    <i class="fa-solid fa-xmark text-base"></i>
                 </button>
             </div>
 
             <!-- Navigation Links -->
-            <div class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
-                <div class="px-3 pb-2 text-[10px] font-semibold uppercase tracking-wider text-mutetext">Menú Principal</div>
+            <div class="flex-1 overflow-y-auto px-2.5 py-4 space-y-1">
+                <div class="px-2.5 pb-2 text-[10px] font-semibold uppercase tracking-wider text-mutetext">Menú</div>
                 
-                <button onclick="switchView('inicio')" id="nav-inicio" class="nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-house w-5 text-center text-cyanaccent/80"></i>
+                <button onclick="switchView('inicio')" id="nav-inicio" class="nav-btn w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
+                    <div class="flex items-center space-x-2.5">
+                        <i class="fa-solid fa-house w-4 text-center text-cyanaccent/80"></i>
                         <span>Inicio</span>
                     </div>
                 </button>
 
-                <button onclick="switchView('secciones')" id="nav-secciones" class="nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-layer-group w-5 text-center text-cyanaccent/80"></i>
+                <button onclick="switchView('secciones')" id="nav-secciones" class="nav-btn w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
+                    <div class="flex items-center space-x-2.5">
+                        <i class="fa-solid fa-layer-group w-4 text-center text-cyanaccent/80"></i>
                         <span>Mis Secciones</span>
                     </div>
-                    <span id="navCountSecciones" class="text-xs px-2 py-0.5 rounded-full bg-bordercolor text-mutetext">0</span>
+                    <span id="navCountSecciones" class="text-[10px] px-1.5 py-0.5 rounded-md bg-bordercolor text-mutetext">0</span>
                 </button>
 
-                <button onclick="switchView('todas')" id="nav-todas" class="nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-box-archive w-5 text-center text-cyanaccent/80"></i>
+                <button onclick="switchView('todas')" id="nav-todas" class="nav-btn w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
+                    <div class="flex items-center space-x-2.5">
+                        <i class="fa-solid fa-box-archive w-4 text-center text-cyanaccent/80"></i>
                         <span>Todas las Ideas</span>
                     </div>
-                    <span id="navCountTodas" class="text-xs px-2 py-0.5 rounded-full bg-bordercolor text-mutetext">0</span>
+                    <span id="navCountTodas" class="text-[10px] px-1.5 py-0.5 rounded-md bg-bordercolor text-mutetext">0</span>
                 </button>
 
-                <button onclick="switchView('terminadas')" id="nav-terminadas" class="nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-circle-check w-5 text-center text-cyanaccent/80"></i>
+                <button onclick="switchView('terminadas')" id="nav-terminadas" class="nav-btn w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
+                    <div class="flex items-center space-x-2.5">
+                        <i class="fa-solid fa-circle-check w-4 text-center text-cyanaccent/80"></i>
                         <span>Ideas Terminadas</span>
                     </div>
-                    <span id="navCountTerminadas" class="text-xs px-2 py-0.5 rounded-full bg-bordercolor text-mutetext">0</span>
+                    <span id="navCountTerminadas" class="text-[10px] px-1.5 py-0.5 rounded-md bg-bordercolor text-mutetext">0</span>
                 </button>
 
-                <div class="pt-5 pb-2 px-3 text-[10px] font-semibold uppercase tracking-wider text-mutetext">Sistema</div>
+                <div class="pt-4 pb-2 px-2.5 text-[10px] font-semibold uppercase tracking-wider text-mutetext">Sistema</div>
 
-                <button onclick="switchView('config')" id="nav-config" class="nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-shield-halved w-5 text-center text-cyanaccent/80"></i>
+                <button onclick="switchView('config')" id="nav-config" class="nav-btn w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all text-slate-300 hover:bg-cardhover hover:text-white">
+                    <div class="flex items-center space-x-2.5">
+                        <i class="fa-solid fa-shield-halved w-4 text-center text-cyanaccent/80"></i>
                         <span>Backups & Config</span>
                     </div>
                 </button>
             </div>
 
-            <!-- Quick Footer profile / status -->
-            <div class="p-4 border-t border-bordercolor bg-cardbg/50">
-                <div class="flex items-center justify-between text-xs text-mutetext">
+            <!-- Footer status -->
+            <div class="p-3 border-t border-bordercolor bg-cardbg">
+                <div class="flex items-center justify-between text-[11px] text-mutetext">
                     <span class="flex items-center space-x-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
                         <span>localStorage activo</span>
                     </span>
-                    <span class="font-mono text-[10px]">v1.0</span>
+                    <span class="font-mono text-[10px]">v2.0</span>
                 </div>
             </div>
         </aside>
 
+        <!-- Main Area -->
         <main class="flex-1 flex flex-col min-w-0 overflow-hidden bg-darkbg">
-            <!-- Top Navbar Header -->
-            <header class="h-16 border-b border-bordercolor bg-cardbg/80 backdrop-blur-md px-6 flex items-center justify-between z-30">
-                <div class="flex items-center space-x-4">
-                    <button id="openSidebarBtn" class="md:hidden text-slate-300 hover:text-white p-2">
-                        <i class="fa-solid fa-bars text-lg"></i>
+            <!-- Header Nav -->
+            <header class="h-14 border-b border-bordercolor bg-cardbg/80 backdrop-blur-md px-5 flex items-center justify-between z-30">
+                <div class="flex items-center space-x-3">
+                    <button id="openSidebarBtn" class="md:hidden text-slate-300 hover:text-white p-1">
+                        <i class="fa-solid fa-bars text-base"></i>
                     </button>
-                    <h2 id="currentViewTitle" class="text-lg font-bold text-white tracking-tight flex items-center space-x-2">
+                    <h2 id="currentViewTitle" class="text-sm font-semibold text-white tracking-tight flex items-center space-x-2">
                         <span>Inicio</span>
                     </h2>
                 </div>
 
                 <div class="flex items-center space-x-3">
-                    <!-- Global Search Input -->
-                    <div class="relative hidden sm:block w-64 md:w-80">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-mutetext">
+                    <!-- Search Input -->
+                    <div class="relative hidden sm:block w-60 md:w-72">
+                        <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-mutetext">
                             <i class="fa-solid fa-magnifying-glass text-xs"></i>
                         </span>
-                        <input type="text" id="globalSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Buscar por título, hook o notas..." class="w-full pl-9 pr-4 py-2 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent transition-colors">
+                        <input type="text" id="globalSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Buscar idea por título..." class="w-full pl-8 pr-3 py-1.5 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent transition-colors">
                     </div>
 
-                    <!-- Quick Add Idea Button -->
-                    <button onclick="openIdeaModal()" class="flex items-center space-x-2 bg-cyanaccent hover:bg-cyanhover text-darkbg font-semibold px-4 py-2 rounded-lg text-xs transition-colors shadow-sm">
+                    <!-- Add Button -->
+                    <button onclick="openIdeaModal()" class="flex items-center space-x-1.5 bg-cyanaccent hover:bg-cyanhover text-darkbg font-semibold px-3 py-1.5 rounded-lg text-xs transition-colors shadow-sm">
                         <i class="fa-solid fa-plus text-xs"></i>
                         <span class="hidden sm:inline">Nueva Idea</span>
                     </button>
                 </div>
             </header>
 
-            <!-- Main Scrollable Content Area -->
-            <div id="mainContentContainer" class="flex-1 overflow-y-auto p-6 md:p-8">
-                <!-- Dynamic View Container injected via JavaScript -->
+            <!-- Scrollable Content -->
+            <div id="mainContentContainer" class="flex-1 overflow-y-auto p-5 md:p-6">
+                <!-- Dynamically populated -->
             </div>
         </main>
     </div>
 
-    <div id="ideaModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-        <div class="bg-cardbg border border-bordercolor rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl fade-in">
-            <div class="px-6 py-4 border-b border-bordercolor flex items-center justify-between">
-                <h3 id="ideaModalTitle" class="text-base font-bold text-white flex items-center space-x-2">
+    <!-- Idea Modal (Strictly Title & Section & Status only) -->
+    <div id="ideaModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-cardbg border border-bordercolor rounded-xl w-full max-w-md overflow-hidden shadow-2xl fade-in">
+            <div class="px-5 py-3.5 border-b border-bordercolor flex items-center justify-between">
+                <h3 id="ideaModalTitle" class="text-xs font-semibold text-white flex items-center space-x-2 uppercase tracking-wide">
                     <i class="fa-solid fa-lightbulb text-cyanaccent"></i>
                     <span>Nueva Idea de Contenido</span>
                 </h3>
                 <button onclick="closeIdeaModal()" class="text-mutetext hover:text-white p-1">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                    <i class="fa-solid fa-xmark text-base"></i>
                 </button>
             </div>
-            <form id="ideaForm" onsubmit="saveIdeaForm(event)" class="p-6 space-y-4">
+            <form id="ideaForm" onsubmit="saveIdeaForm(event)" class="p-5 space-y-4">
                 <input type="hidden" id="ideaId">
                 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Título de la Idea *</label>
-                    <input type="text" id="ideaTitle" required placeholder="Ej. Cómo hacer Half Flip perfecto en 3 pasos" class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Nombre / Título de la idea *</label>
+                    <input type="text" id="ideaTitle" required placeholder="Ej. Half Flip perfecto en 3 pasos" class="w-full px-3 py-2 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Sección / Serie *</label>
-                        <select id="ideaSection" required class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyanaccent">
-                            <!-- Populated dynamically -->
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Sección *</label>
+                        <select id="ideaSection" required class="w-full px-3 py-2 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
+                            <!-- Options inserted JS -->
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Estado</label>
-                        <select id="ideaStatus" class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyanaccent">
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Estado</label>
+                        <select id="ideaStatus" class="w-full px-3 py-2 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
                             <option value="Pendiente">Pendiente</option>
                             <option value="En proceso">En proceso</option>
                             <option value="Terminada">Terminada</option>
@@ -216,66 +218,58 @@
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Hook / Primera frase del vídeo (Opcional)</label>
-                    <input type="text" id="ideaHook" placeholder="Ej. 'Si sigues fallando tus aéreos es porque haces esto mal...'" class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Notas / Descripción / Guion rápido (Opcional)</label>
-                    <textarea id="ideaNotes" rows="3" placeholder="Detalles de la edición, música recomendada, clips a usar..." class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent resize-none"></textarea>
-                </div>
-
-                <div class="pt-2 flex items-center justify-end space-x-3">
-                    <button type="button" onclick="closeIdeaModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:bg-cardhover transition-colors">Cancelar</button>
-                    <button type="submit" class="px-5 py-2 rounded-xl text-xs font-semibold bg-cyanaccent hover:bg-cyanhover text-darkbg transition-colors shadow-sm">Guardar Idea</button>
+                <div class="pt-2 flex items-center justify-end space-x-2">
+                    <button type="button" onclick="closeIdeaModal()" class="px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-cardhover transition-colors">Cancelar</button>
+                    <button type="submit" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-cyanaccent hover:bg-cyanhover text-darkbg transition-colors shadow-sm">Guardar Idea</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div id="sectionModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-        <div class="bg-cardbg border border-bordercolor rounded-2xl w-full max-w-md overflow-hidden shadow-2xl fade-in">
-            <div class="px-6 py-4 border-b border-bordercolor flex items-center justify-between">
-                <h3 id="sectionModalTitle" class="text-base font-bold text-white flex items-center space-x-2">
+    <!-- Section Modal -->
+    <div id="sectionModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-cardbg border border-bordercolor rounded-xl w-full max-w-md overflow-hidden shadow-2xl fade-in">
+            <div class="px-5 py-3.5 border-b border-bordercolor flex items-center justify-between">
+                <h3 id="sectionModalTitle" class="text-xs font-semibold text-white flex items-center space-x-2 uppercase tracking-wide">
                     <i class="fa-solid fa-layer-group text-cyanaccent"></i>
                     <span>Nueva Sección</span>
                 </h3>
                 <button onclick="closeSectionModal()" class="text-mutetext hover:text-white p-1">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                    <i class="fa-solid fa-xmark text-base"></i>
                 </button>
             </div>
-            <form id="sectionForm" onsubmit="saveSectionForm(event)" class="p-6 space-y-4">
+            <form id="sectionForm" onsubmit="saveSectionForm(event)" class="p-5 space-y-4">
                 <input type="hidden" id="sectionId">
                 
                 <div class="grid grid-cols-4 gap-3">
                     <div class="col-span-3">
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre *</label>
-                        <input type="text" id="sectionName" required placeholder="Ej. Torneos y Competitivo" class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Nombre *</label>
+                        <input type="text" id="sectionName" required placeholder="Ej. Torneos y Ranked" class="w-full px-3 py-2 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Emoji</label>
-                        <input type="text" id="sectionIcon" placeholder="🏆" maxlength="4" class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-center text-slate-200 focus:outline-none focus:border-cyanaccent">
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Icono</label>
+                        <input type="text" id="sectionIcon" placeholder="🏆" maxlength="4" class="w-full px-3 py-2 bg-darkbg border border-bordercolor rounded-lg text-xs text-center text-slate-200 focus:outline-none focus:border-cyanaccent">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Descripción Breve</label>
-                    <input type="text" id="sectionDesc" placeholder="Ideas orientadas a ranked y torneos oficiales..." class="w-full px-3 py-2.5 bg-darkbg border border-bordercolor rounded-xl text-sm text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Descripción breve (opcional)</label>
+                    <input type="text" id="sectionDesc" placeholder="Ideas sobre torneos, ranked y emparejamientos..." class="w-full px-3 py-2 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
                 </div>
 
-                <div class="pt-2 flex items-center justify-end space-x-3">
-                    <button type="button" onclick="closeSectionModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:bg-cardhover transition-colors">Cancelar</button>
-                    <button type="submit" class="px-5 py-2 rounded-xl text-xs font-semibold bg-cyanaccent hover:bg-cyanhover text-darkbg transition-colors shadow-sm">Guardar Sección</button>
+                <div class="pt-2 flex items-center justify-end space-x-2">
+                    <button type="button" onclick="closeSectionModal()" class="px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-cardhover transition-colors">Cancelar</button>
+                    <button type="submit" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-cyanaccent hover:bg-cyanhover text-darkbg transition-colors shadow-sm">Guardar Sección</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+    <!-- Toast Notification Holder -->
+    <div id="toastContainer" class="fixed bottom-4 right-4 z-50 flex flex-col space-y-2 pointer-events-none"></div>
 
     <script>
-        // Default initial data for Rocket League TikTok Content Library
+        // Initial Preloaded Sections (Default Rocket League Categories)
         const DEFAULT_SECTIONS = [
             {
                 id: 'sec-1',
@@ -315,76 +309,58 @@
             }
         ];
 
+        // Initial Preloaded Ideas (Strictly Name, Section, Status, Creation Date, Completion Date)
         const DEFAULT_IDEAS = [
             // Seccion 1
-            { id: 'idea-1', title: 'Half Flip', sectionId: 'sec-1', status: 'Terminada', hook: 'El truco obligatorio para rotar el doble de rápido sin perder boost.', notes: 'Grabar teclado en pantalla y explicación paso a paso con cancelación de diagonal.', createdAt: '2026-03-01T10:00:00.000Z', completedAt: '2026-03-02T15:00:00.000Z' },
-            { id: 'idea-2', title: 'Wave Dash', sectionId: 'sec-1', status: 'Pendiente', hook: '¿Por qué tus rivales siempre llegan antes a la pelota? Usan esto.', notes: 'Mostrar wave dash en la pared y en el suelo saliendo de la portería.', createdAt: '2026-03-03T11:00:00.000Z', completedAt: null },
-            { id: 'idea-3', title: 'Fast Aerial', sectionId: 'sec-1', status: 'Pendiente', hook: 'Deja de perder balones aéreos contra jugadores más lentos.', notes: 'Explicar doble salto con inclinación hacia atrás sin hacer backflip.', createdAt: '2026-03-04T12:00:00.000Z', completedAt: null },
-            { id: 'idea-4', title: 'Powerslide', sectionId: 'sec-1', status: 'Pendiente', hook: 'El secreto para giros cerrados de 180 grados sin perder velocidad.', notes: '', createdAt: '2026-03-05T09:00:00.000Z', completedAt: null },
-            { id: 'idea-5', title: 'Air Roll', sectionId: 'sec-1', status: 'En proceso', hook: 'Cómo empezar a usar Air Roll Right o Left sin marearte en el intento.', notes: 'Práctica en rings map.', createdAt: '2026-03-06T14:00:00.000Z', completedAt: null },
-            { id: 'idea-6', title: 'Powershots', sectionId: 'sec-1', status: 'Pendiente', hook: 'Dale con la esquina de tu coche para reventar el arco rival.', notes: '', createdAt: '2026-03-07T10:00:00.000Z', completedAt: null },
-            { id: 'idea-7', title: 'Powerslide Cut', sectionId: 'sec-1', status: 'Pendiente', hook: 'Deja sentado al defensor con un amago sutil.', notes: '', createdAt: '2026-03-08T11:00:00.000Z', completedAt: null },
-            { id: 'idea-8', title: 'Fast Kickoff', sectionId: 'sec-1', status: 'Pendiente', hook: 'Gana siempre el 50/50 inicial en saque de centro.', notes: '', createdAt: '2026-03-09T13:00:00.000Z', completedAt: null },
-            { id: 'idea-9', title: 'Recuperaciones después de saltar', sectionId: 'sec-1', status: 'Pendiente', hook: 'Nunca te quedes vendido tras un salto fallido.', notes: '', createdAt: '2026-03-10T15:00:00.000Z', completedAt: null },
-            { id: 'idea-10', title: 'Despejes y defensa desde el backboard', sectionId: 'sec-1', status: 'Pendiente', hook: 'Convierte una defensa difícil en un contraataque letal.', notes: '', createdAt: '2026-03-11T16:00:00.000Z', completedAt: null },
+            { id: 'idea-1', title: 'Half Flip', sectionId: 'sec-1', status: 'Terminada', createdAt: '2026-03-01T10:00:00.000Z', completedAt: '2026-03-02T15:00:00.000Z' },
+            { id: 'idea-2', title: 'Wave Dash', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-03T11:00:00.000Z', completedAt: null },
+            { id: 'idea-3', title: 'Fast Aerial', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-04T12:00:00.000Z', completedAt: null },
+            { id: 'idea-4', title: 'Powerslide', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-05T09:00:00.000Z', completedAt: null },
+            { id: 'idea-5', title: 'Air Roll', sectionId: 'sec-1', status: 'En proceso', createdAt: '2026-03-06T14:00:00.000Z', completedAt: null },
+            { id: 'idea-6', title: 'Powershots', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-07T10:00:00.000Z', completedAt: null },
+            { id: 'idea-7', title: 'Powerslide Cut', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-08T11:00:00.000Z', completedAt: null },
+            { id: 'idea-8', title: 'Fast Kickoff', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-09T13:00:00.000Z', completedAt: null },
+            { id: 'idea-9', title: 'Recuperaciones después de saltar', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-10T15:00:00.000Z', completedAt: null },
+            { id: 'idea-10', title: 'Despejes y defensa desde el backboard', sectionId: 'sec-1', status: 'Pendiente', createdAt: '2026-03-11T16:00:00.000Z', completedAt: null },
 
             // Seccion 2
-            { id: 'idea-11', title: 'Aprendiendo a hacer Flip Resets desde cero', sectionId: 'sec-2', status: 'En proceso', hook: 'Día 1 intentando la mecánica más rota de Rocket League.', notes: 'Montaje rápido de frustración y pequeños avances.', createdAt: '2026-03-01T12:00:00.000Z', completedAt: null },
-            { id: 'idea-12', title: 'Mi primer día practicando Musty Flicks', sectionId: 'sec-2', status: 'Pendiente', hook: '¿Es tan difícil como parece meter un Musty?', notes: '', createdAt: '2026-03-02T13:00:00.000Z', completedAt: null },
-            { id: 'idea-13', title: 'Intentando aprender Double Taps', sectionId: 'sec-2', status: 'Pendiente', hook: 'Calculando el rebote en el tablero trasero sin morir en el intento.', notes: '', createdAt: '2026-03-03T14:00:00.000Z', completedAt: null },
-            { id: 'idea-14', title: 'Una semana practicando una mecánica', sectionId: 'sec-2', status: 'Pendiente', hook: 'Esto es lo que pasa cuando le dedicas 1 hora al día a un solo truco.', notes: '', createdAt: '2026-03-04T15:00:00.000Z', completedAt: null },
-            { id: 'idea-15', title: 'Mi progreso después de 7 días', sectionId: 'sec-2', status: 'Pendiente', hook: 'De no tocar el balón en el aire a marcar mi primer gol.', notes: '', createdAt: '2026-03-05T16:00:00.000Z', completedAt: null },
-            { id: 'idea-16', title: 'Cuánto tardé en conseguir hacer la mecánica de forma consistente', sectionId: 'sec-2', status: 'Pendiente', hook: 'La verdad sobre las horas necesarias para dominar el juego.', notes: '', createdAt: '2026-03-06T10:00:00.000Z', completedAt: null },
+            { id: 'idea-11', title: 'Aprendiendo a hacer Flip Resets desde cero', sectionId: 'sec-2', status: 'En proceso', createdAt: '2026-03-01T12:00:00.000Z', completedAt: null },
+            { id: 'idea-12', title: 'Mi primer día practicando Musty Flicks', sectionId: 'sec-2', status: 'Pendiente', createdAt: '2026-03-02T13:00:00.000Z', completedAt: null },
+            { id: 'idea-13', title: 'Intentando aprender Double Taps', sectionId: 'sec-2', status: 'Pendiente', createdAt: '2026-03-03T14:00:00.000Z', completedAt: null },
 
             // Seccion 3
-            { id: 'idea-17', title: 'The Art of Saves', sectionId: 'sec-3', status: 'Terminada', hook: 'Salvadas imposibles al ritmo de música cinemática.', notes: 'Usar color grading oscuro y ralentís en el momento clave.', createdAt: '2026-03-01T16:00:00.000Z', completedAt: '2026-03-03T18:00:00.000Z' },
-            { id: 'idea-18', title: 'The Art of Double Taps', sectionId: 'sec-3', status: 'Pendiente', hook: 'Precisión milimétrica en el aire.', notes: '', createdAt: '2026-03-02T11:00:00.000Z', completedAt: null },
-            { id: 'idea-19', title: 'The Art of Air Dribbles', sectionId: 'sec-3', status: 'Pendiente', hook: 'Pegado al techo y directo a la escuadra.', notes: '', createdAt: '2026-03-03T12:00:00.000Z', completedAt: null },
-            { id: 'idea-20', title: 'The Art of Flip Resets', sectionId: 'sec-3', status: 'Pendiente', hook: 'El arte de resetear el salto en el aire.', notes: '', createdAt: '2026-03-04T13:00:00.000Z', completedAt: null },
-            { id: 'idea-21', title: 'The Art of Redirects', sectionId: 'sec-3', status: 'Pendiente', hook: 'Cambiar la trayectoria del balón a máxima velocidad.', notes: '', createdAt: '2026-03-05T14:00:00.000Z', completedAt: null },
-            { id: 'idea-22', title: 'The Art of Rocket League Recoveries', sectionId: 'sec-3', status: 'Pendiente', hook: 'Fluidez absoluta tras cada golpe.', notes: '', createdAt: '2026-03-06T15:00:00.000Z', completedAt: null },
+            { id: 'idea-14', title: 'The Art of Saves', sectionId: 'sec-3', status: 'Terminada', createdAt: '2026-03-01T16:00:00.000Z', completedAt: '2026-03-03T18:00:00.000Z' },
+            { id: 'idea-15', title: 'The Art of Double Taps', sectionId: 'sec-3', status: 'Pendiente', createdAt: '2026-03-02T11:00:00.000Z', completedAt: null },
+            { id: 'idea-16', title: 'The Art of Air Dribbles', sectionId: 'sec-3', status: 'Pendiente', createdAt: '2026-03-03T12:00:00.000Z', completedAt: null },
 
             // Seccion 4
-            { id: 'idea-23', title: 'Mejores jugadas de mis partidas', sectionId: 'sec-4', status: 'Pendiente', hook: 'Clips limpios de mis mejores sesiones en Champion.', notes: '', createdAt: '2026-03-01T17:00:00.000Z', completedAt: null },
-            { id: 'idea-24', title: 'Mejores goles de la semana', sectionId: 'sec-4', status: 'Pendiente', hook: 'Recopilación semanal de anotaciones top.', notes: '', createdAt: '2026-03-02T18:00:00.000Z', completedAt: null },
-            { id: 'idea-25', title: 'Jugadas inesperadas', sectionId: 'sec-4', status: 'Pendiente', hook: 'Cuando sale un tiro ridículo de pura suerte.', notes: '', createdAt: '2026-03-03T19:00:00.000Z', completedAt: null },
-            { id: 'idea-26', title: 'Mejores salvadas', sectionId: 'sec-4', status: 'Pendiente', hook: 'Salvando el gol cantado sobre la misma línea.', notes: '', createdAt: '2026-03-04T10:00:00.000Z', completedAt: null },
-            { id: 'idea-27', title: 'Clips para editar con música', sectionId: 'sec-4', status: 'Pendiente', hook: 'Momentos idóneos para transiciones musicales.', notes: '', createdAt: '2026-03-05T11:00:00.000Z', completedAt: null },
-            { id: 'idea-28', title: 'Momentos destacados de mis sesiones', sectionId: 'sec-4', status: 'Pendiente', hook: 'Lo mejor y lo peor de jugar ranked hoy.', notes: '', createdAt: '2026-03-06T12:00:00.000Z', completedAt: null },
+            { id: 'idea-17', title: 'Mejores jugadas de mis partidas', sectionId: 'sec-4', status: 'Pendiente', createdAt: '2026-03-01T17:00:00.000Z', completedAt: null },
+            { id: 'idea-18', title: 'Mejores goles de la semana', sectionId: 'sec-4', status: 'Pendiente', createdAt: '2026-03-02T18:00:00.000Z', completedAt: null },
 
             // Seccion 5
-            { id: 'idea-29', title: 'Situaciones típicas de las partidas ranked', sectionId: 'sec-5', status: 'Pendiente', hook: 'Ese momento en el que tu compañero decide ir a por el mismo balón que tú.', notes: '', createdAt: '2026-03-01T13:00:00.000Z', completedAt: null },
-            { id: 'idea-30', title: 'Cosas que solo entiende alguien que juega Rocket League', sectionId: 'sec-5', status: 'Pendiente', hook: 'Sufrir por culpa del ping en el último segundo.', notes: '', createdAt: '2026-03-02T14:00:00.000Z', completedAt: null },
-            { id: 'idea-31', title: 'Errores absurdos de mis compañeros', sectionId: 'sec-5', status: 'Pendiente', hook: 'Autogol épico en prórroga.', notes: '', createdAt: '2026-03-03T15:00:00.000Z', completedAt: null },
-            { id: 'idea-32', title: 'Expectativa frente a realidad', sectionId: 'sec-5', status: 'Pendiente', hook: 'Intentar un aéreo profesional vs lo que realmente sale.', notes: '', createdAt: '2026-03-04T16:00:00.000Z', completedAt: null },
-            { id: 'idea-33', title: 'Situaciones frustrantes del matchmaking', sectionId: 'sec-5', status: 'Pendiente', hook: 'Emparejado contra smurfs en Diamante.', notes: '', createdAt: '2026-03-05T17:00:00.000Z', completedAt: null },
-            { id: 'idea-34', title: 'Memes relacionados con los rangos', sectionId: 'sec-5', status: 'Pendiente', hook: 'El sufrimiento eterno de estar atrapado en Platino.', notes: '', createdAt: '2026-03-06T18:00:00.000Z', completedAt: null },
+            { id: 'idea-19', title: 'Situaciones típicas de las partidas ranked', sectionId: 'sec-5', status: 'Pendiente', createdAt: '2026-03-01T13:00:00.000Z', completedAt: null },
+            { id: 'idea-20', title: 'Cosas que solo entiende alguien que juega Rocket League', sectionId: 'sec-5', status: 'Pendiente', createdAt: '2026-03-02T14:00:00.000Z', completedAt: null },
 
             // Seccion 6
-            { id: 'idea-35', title: 'Errores que te mantienen estancado en Champion', sectionId: 'sec-6', status: 'Pendiente', hook: 'Si cometes este error táctico, nunca llegarás a Grand Champion.', notes: 'Hablar de sobrecompromiso en ataque.', createdAt: '2026-03-01T19:00:00.000Z', completedAt: null },
-            { id: 'idea-36', title: 'Cómo rotar mejor', sectionId: 'sec-6', status: 'Pendiente', hook: 'Deja de chocar con tu compañero de equipo.', notes: '', createdAt: '2026-03-02T10:00:00.000Z', completedAt: null },
-            { id: 'idea-37', title: 'Cuándo desafiar la pelota', sectionId: 'sec-6', status: 'Pendiente', hook: 'El arte de presionar sin regalar tu portería.', notes: '', createdAt: '2026-03-03T11:00:00.000Z', completedAt: null },
-            { id: 'idea-38', title: 'Cómo gestionar el boost', sectionId: 'sec-6', status: 'Pendiente', hook: 'Sobrevivir con 12 de boost sin quedarte vendido.', notes: '', createdAt: '2026-03-04T12:00:00.000Z', completedAt: null },
-            { id: 'idea-39', title: 'Cuándo dejar de perseguir la pelota', sectionId: 'sec-6', status: 'Pendiente', hook: 'Señales claras de que estás haciendo ball chasing.', notes: '', createdAt: '2026-03-05T13:00:00.000Z', completedAt: null },
-            { id: 'idea-40', title: 'Cómo defender sin regalar la posesión', sectionId: 'sec-6', status: 'Pendiente', hook: 'Despejar controlado en lugar de reventar sin mirar.', notes: '', createdAt: '2026-03-06T14:00:00.000Z', completedAt: null }
+            { id: 'idea-21', title: 'Errores que te mantienen estancado en Champion', sectionId: 'sec-6', status: 'Pendiente', createdAt: '2026-03-01T19:00:00.000Z', completedAt: null },
+            { id: 'idea-22', title: 'Cómo rotar mejor', sectionId: 'sec-6', status: 'Pendiente', createdAt: '2026-03-02T10:00:00.000Z', completedAt: null }
         ];
 
-        // State Management
+        // Global State
         let appState = {
             currentView: 'inicio',
-            activeSectionId: null, // used when viewing specific section details
+            activeSectionId: null,
             searchQuery: '',
             filterSection: 'all',
             filterStatus: 'all',
-            sortBy: 'newest', // newest, oldest, name, status
+            sortBy: 'newest',
             sections: [],
             ideas: []
         };
 
-        // Initialize LocalStorage & Load Data
         function initApp() {
-            const savedSections = localStorage.getItem('rl_ideas_sections');
-            const savedIdeas = localStorage.getItem('rl_ideas_items');
+            const savedSections = localStorage.getItem('rl_ideas_sections_v2');
+            const savedIdeas = localStorage.getItem('rl_ideas_items_v2');
 
             if (!savedSections || !savedIdeas) {
                 appState.sections = DEFAULT_SECTIONS;
@@ -395,7 +371,6 @@
                     appState.sections = JSON.parse(savedSections);
                     appState.ideas = JSON.parse(savedIdeas);
                 } catch (e) {
-                    console.error("Error parsing localStorage data, restoring defaults", e);
                     appState.sections = DEFAULT_SECTIONS;
                     appState.ideas = DEFAULT_IDEAS;
                     saveToLocalStorage();
@@ -408,12 +383,11 @@
         }
 
         function saveToLocalStorage() {
-            localStorage.setItem('rl_ideas_sections', JSON.stringify(appState.sections));
-            localStorage.setItem('rl_ideas_items', JSON.stringify(appState.ideas));
+            localStorage.setItem('rl_ideas_sections_v2', JSON.stringify(appState.sections));
+            localStorage.setItem('rl_ideas_items_v2', JSON.stringify(appState.ideas));
             updateNavigationCounts();
         }
 
-        // Sidebar Navigation
         function setupMobileSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebarOverlay');
@@ -442,21 +416,15 @@
 
         function switchView(viewName, param = null) {
             appState.currentView = viewName;
-            if (param) {
-                appState.activeSectionId = param;
-            }
+            if (param) appState.activeSectionId = param;
 
-            // Update active nav styling
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('bg-cardhover', 'text-white', 'border-l-2', 'border-cyanaccent');
+                btn.classList.remove('bg-cardhover', 'text-white');
                 btn.classList.add('text-slate-300');
             });
             const activeBtn = document.getElementById(`nav-${viewName}`);
-            if (activeBtn) {
-                activeBtn.classList.add('bg-cardhover', 'text-white');
-            }
+            if (activeBtn) activeBtn.classList.add('bg-cardhover', 'text-white');
 
-            // Close mobile sidebar if open
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebarOverlay');
             if (!sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
@@ -496,11 +464,11 @@
                     container.innerHTML = renderTerminatedView();
                     break;
                 case 'config':
-                    titleEl.innerHTML = `<span>Copias de seguridad y Configuración</span>`;
+                    titleEl.innerHTML = `<span>Copias de seguridad & Configuración</span>`;
                     container.innerHTML = renderConfigView();
                     break;
                 default:
-                    container.innerHTML = `<div class="text-slate-400">Vista no encontrada.</div>`;
+                    container.innerHTML = `<div class="text-xs text-mutetext">Vista no encontrada.</div>`;
             }
         }
 
@@ -511,69 +479,48 @@
             const proc = appState.ideas.filter(i => i.status === 'En proceso').length;
             const term = appState.ideas.filter(i => i.status === 'Terminada').length;
 
-            // Last added ideas (last 5)
             const recentIdeas = [...appState.ideas].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
-            // Pending queue for work (first 6 pending)
-            const pendingQueue = appState.ideas.filter(i => i.status === 'Pendiente' || i.status === 'En proceso').slice(0, 6);
+            const pendingQueue = appState.ideas.filter(i => i.status !== 'Terminada').slice(0, 5);
 
             return `
-                <div class="space-y-8 fade-in max-w-7xl mx-auto">
-                    <!-- Stats Cards Grid -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 shadow-sm">
-                            <div class="flex items-center justify-between text-mutetext mb-2">
-                                <span class="text-xs font-semibold uppercase tracking-wider">Total de Ideas</span>
-                                <i class="fa-solid fa-lightbulb text-cyanaccent"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-white">${total}</div>
-                            <div class="text-[11px] text-mutetext mt-1">Registradas en el sistema</div>
+                <div class="space-y-6 fade-in max-w-6xl mx-auto">
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="bg-cardbg border border-bordercolor rounded-xl p-4">
+                            <div class="text-[10px] font-semibold text-mutetext uppercase tracking-wider mb-1">Total Ideas</div>
+                            <div class="text-2xl font-bold text-white">${total}</div>
                         </div>
-
-                        <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 shadow-sm">
-                            <div class="flex items-center justify-between text-mutetext mb-2">
-                                <span class="text-xs font-semibold uppercase tracking-wider">Pendientes</span>
-                                <i class="fa-solid fa-clock text-amber-400"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-white">${pend}</div>
-                            <div class="text-[11px] text-mutetext mt-1">Por producir y grabar</div>
+                        <div class="bg-cardbg border border-bordercolor rounded-xl p-4">
+                            <div class="text-[10px] font-semibold text-amber-400 uppercase tracking-wider mb-1">Pendientes</div>
+                            <div class="text-2xl font-bold text-white">${pend}</div>
                         </div>
-
-                        <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 shadow-sm">
-                            <div class="flex items-center justify-between text-mutetext mb-2">
-                                <span class="text-xs font-semibold uppercase tracking-wider">En Proceso</span>
-                                <i class="fa-solid fa-spinner text-cyanaccent"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-white">${proc}</div>
-                            <div class="text-[11px] text-mutetext mt-1">En edición o práctica</div>
+                        <div class="bg-cardbg border border-bordercolor rounded-xl p-4">
+                            <div class="text-[10px] font-semibold text-cyanaccent uppercase tracking-wider mb-1">En Proceso</div>
+                            <div class="text-2xl font-bold text-white">${proc}</div>
                         </div>
-
-                        <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 shadow-sm">
-                            <div class="flex items-center justify-between text-mutetext mb-2">
-                                <span class="text-xs font-semibold uppercase tracking-wider">Terminadas</span>
-                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-white">${term}</div>
-                            <div class="text-[11px] text-mutetext mt-1">Vídeos ya publicados</div>
+                        <div class="bg-cardbg border border-bordercolor rounded-xl p-4">
+                            <div class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider mb-1">Terminadas</div>
+                            <div class="text-2xl font-bold text-white">${term}</div>
                         </div>
                     </div>
 
-                    <!-- Sections Quick Access Bar -->
-                    <div class="space-y-3">
+                    <!-- Quick Sections -->
+                    <div class="space-y-2.5">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-sm font-bold text-white tracking-wide uppercase text-mutetext">Secciones de Contenido</h3>
-                            <button onclick="switchView('secciones')" class="text-xs text-cyanaccent hover:underline font-semibold">Ver todas (${appState.sections.length})</button>
+                            <h3 class="text-xs font-semibold text-mutetext uppercase tracking-wider">Secciones de Contenido</h3>
+                            <button onclick="switchView('secciones')" class="text-xs text-cyanaccent hover:underline">Ver todas</button>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             ${appState.sections.map(sec => {
                                 const count = appState.ideas.filter(i => i.sectionId === sec.id).length;
-                                const pendingCount = appState.ideas.filter(i => i.sectionId === sec.id && i.status !== 'Terminada').length;
+                                const pendSec = appState.ideas.filter(i => i.sectionId === sec.id && i.status !== 'Terminada').length;
                                 return `
-                                    <div onclick="openSectionDetail('${sec.id}')" class="bg-cardbg hover:bg-cardhover border border-bordercolor rounded-xl p-4 cursor-pointer transition-all flex items-center justify-between group">
+                                    <div onclick="openSectionDetail('${sec.id}')" class="bg-cardbg hover:bg-cardhover border border-bordercolor rounded-xl p-3.5 cursor-pointer transition-all flex items-center justify-between group">
                                         <div class="flex items-center space-x-3 min-w-0">
-                                            <span class="text-2xl">${sec.icon || '📁'}</span>
+                                            <span class="text-xl">${sec.icon || '📁'}</span>
                                             <div class="min-w-0">
-                                                <h4 class="text-sm font-semibold text-white truncate group-hover:text-cyanaccent transition-colors">${sec.name}</h4>
-                                                <p class="text-xs text-mutetext truncate">${pendingCount} pendientes de ${count} total</p>
+                                                <h4 class="text-xs font-semibold text-white truncate group-hover:text-cyanaccent transition-colors">${sec.name}</h4>
+                                                <p class="text-[10px] text-mutetext truncate">${pendSec} pendientes · ${count} total</p>
                                             </div>
                                         </div>
                                         <i class="fa-solid fa-chevron-right text-xs text-mutetext group-hover:text-cyanaccent transition-colors"></i>
@@ -583,29 +530,27 @@
                         </div>
                     </div>
 
-                    <!-- Two columns: Recent ideas & Pending working queue -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Last Added -->
-                        <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 space-y-4">
+                    <!-- Recent vs Pending -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <div class="bg-cardbg border border-bordercolor rounded-xl p-4 space-y-3">
                             <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-white tracking-wide uppercase text-mutetext">Últimas Ideas Añadidas</h3>
+                                <h3 class="text-xs font-semibold text-mutetext uppercase tracking-wider">Últimas Ideas Creadas</h3>
                                 <button onclick="switchView('todas')" class="text-xs text-cyanaccent hover:underline">Ver todas</button>
                             </div>
-                            <div class="space-y-3">
-                                ${recentIdeas.length === 0 ? '<p class="text-xs text-mutetext py-4 text-center">No hay ideas registradas.</p>' : 
-                                  recentIdeas.map(idea => renderIdeaCardCompact(idea)).join('')}
+                            <div class="space-y-2">
+                                ${recentIdeas.length === 0 ? '<p class="text-xs text-mutetext py-3 text-center">Sin ideas creadas.</p>' : 
+                                  recentIdeas.map(idea => renderIdeaRow(idea)).join('')}
                             </div>
                         </div>
 
-                        <!-- Pending queue -->
-                        <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 space-y-4">
+                        <div class="bg-cardbg border border-bordercolor rounded-xl p-4 space-y-3">
                             <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-white tracking-wide uppercase text-mutetext">Cola de Producción Pendiente</h3>
+                                <h3 class="text-xs font-semibold text-mutetext uppercase tracking-wider">Cola de Pendientes</h3>
                                 <button onclick="switchView('todas')" class="text-xs text-cyanaccent hover:underline">Gestionar</button>
                             </div>
-                            <div class="space-y-3">
-                                ${pendingQueue.length === 0 ? '<p class="text-xs text-mutetext py-4 text-center">¡Estás al día! No hay ideas pendientes.</p>' : 
-                                  pendingQueue.map(idea => renderIdeaCardCompact(idea)).join('')}
+                            <div class="space-y-2">
+                                ${pendingQueue.length === 0 ? '<p class="text-xs text-mutetext py-3 text-center">Sin ideas pendientes.</p>' : 
+                                  pendingQueue.map(idea => renderIdeaRow(idea)).join('')}
                             </div>
                         </div>
                     </div>
@@ -613,71 +558,67 @@
             `;
         }
 
-        // --- VIEW 2: SECTIONS MANAGEMENT ---
+        // --- VIEW 2: SECTIONS ---
         function renderSectionsView() {
             return `
-                <div class="space-y-6 fade-in max-w-7xl mx-auto">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div class="space-y-5 fade-in max-w-6xl mx-auto">
+                    <div class="flex items-center justify-between">
                         <div>
-                            <h3 class="text-base font-bold text-white">Gestión de Secciones y Series</h3>
-                            <p class="text-xs text-mutetext">Organiza tus temáticas de contenido para TikTok sin límites.</p>
+                            <h3 class="text-sm font-semibold text-white">Mis Secciones</h3>
+                            <p class="text-xs text-mutetext">Organiza tus series y categorías de Rocket League.</p>
                         </div>
-                        <button onclick="openSectionModal()" class="flex items-center justify-center space-x-2 bg-cyanaccent hover:bg-cyanhover text-darkbg font-semibold px-4 py-2 rounded-xl text-xs transition-colors shadow-sm">
+                        <button onclick="openSectionModal()" class="flex items-center space-x-1.5 bg-cyanaccent hover:bg-cyanhover text-darkbg font-semibold px-3 py-1.5 rounded-lg text-xs transition-colors shadow-sm">
                             <i class="fa-solid fa-plus text-xs"></i>
                             <span>Nueva Sección</span>
                         </button>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
                         ${appState.sections.map(sec => {
                             const total = appState.ideas.filter(i => i.sectionId === sec.id).length;
                             const pending = appState.ideas.filter(i => i.sectionId === sec.id && i.status === 'Pendiente').length;
                             const completed = appState.ideas.filter(i => i.sectionId === sec.id && i.status === 'Terminada').length;
-                            const process = appState.ideas.filter(i => i.sectionId === sec.id && i.status === 'En proceso').length;
 
                             return `
-                                <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-cyanaccent/50 transition-all">
+                                <div class="bg-cardbg border border-bordercolor rounded-xl p-4 flex flex-col justify-between space-y-3 hover:border-cyanaccent/40 transition-all">
                                     <div>
-                                        <div class="flex items-start justify-between mb-3">
-                                            <div class="flex items-center space-x-3">
-                                                <span class="text-3xl">${sec.icon || '📁'}</span>
+                                        <div class="flex items-start justify-between mb-2">
+                                            <div class="flex items-center space-x-2.5">
+                                                <span class="text-2xl">${sec.icon || '📁'}</span>
                                                 <div>
-                                                    <h4 class="font-bold text-white text-base">${sec.name}</h4>
-                                                    <p class="text-xs text-mutetext mt-0.5 line-clamp-2">${sec.description || 'Sin descripción'}</p>
+                                                    <h4 class="font-bold text-white text-xs">${sec.name}</h4>
+                                                    <p class="text-[10px] text-mutetext mt-0.5 line-clamp-1">${sec.description || 'Sin descripción'}</p>
                                                 </div>
                                             </div>
                                             <div class="flex items-center space-x-1">
-                                                <button onclick="editSection('${sec.id}')" class="p-1.5 text-mutetext hover:text-white transition-colors" title="Editar sección">
-                                                    <i class="fa-solid fa-pen text-xs"></i>
+                                                <button onclick="editSection('${sec.id}')" class="p-1 text-mutetext hover:text-white" title="Editar">
+                                                    <i class="fa-solid fa-pen text-[10px]"></i>
                                                 </button>
-                                                <button onclick="deleteSection('${sec.id}')" class="p-1.5 text-mutetext hover:text-rose-400 transition-colors" title="Eliminar sección">
-                                                    <i class="fa-solid fa-trash text-xs"></i>
+                                                <button onclick="deleteSection('${sec.id}')" class="p-1 text-mutetext hover:text-rose-400" title="Eliminar">
+                                                    <i class="fa-solid fa-trash text-[10px]"></i>
                                                 </button>
                                             </div>
                                         </div>
 
-                                        <!-- Counters -->
-                                        <div class="grid grid-cols-3 gap-2 py-2 border-y border-bordercolor my-3 text-center">
+                                        <div class="grid grid-cols-3 gap-1 py-2 border-y border-bordercolor/60 text-center my-2">
                                             <div>
-                                                <div class="text-xs text-mutetext">Total</div>
-                                                <div class="text-sm font-bold text-white">${total}</div>
+                                                <div class="text-[9px] text-mutetext uppercase">Total</div>
+                                                <div class="text-xs font-bold text-white">${total}</div>
                                             </div>
                                             <div>
-                                                <div class="text-xs text-mutetext">Pendientes</div>
-                                                <div class="text-sm font-bold text-amber-400">${pending}</div>
+                                                <div class="text-[9px] text-mutetext uppercase">Pendientes</div>
+                                                <div class="text-xs font-bold text-amber-400">${pending}</div>
                                             </div>
                                             <div>
-                                                <div class="text-xs text-mutetext">Terminadas</div>
-                                                <div class="text-sm font-bold text-emerald-400">${completed}</div>
+                                                <div class="text-[9px] text-mutetext uppercase">Hechas</div>
+                                                <div class="text-xs font-bold text-emerald-400">${completed}</div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="flex items-center justify-between pt-1">
-                                        <button onclick="openSectionDetail('${sec.id}')" class="w-full text-center bg-darkbg hover:bg-cardhover border border-bordercolor text-slate-200 font-semibold py-2 rounded-xl text-xs transition-colors">
-                                            Ver Ideas de esta Sección
-                                        </button>
-                                    </div>
+                                    <button onclick="openSectionDetail('${sec.id}')" class="w-full text-center bg-darkbg hover:bg-cardhover border border-bordercolor text-slate-200 py-1.5 rounded-lg text-xs font-medium transition-colors">
+                                        Ver Ideas
+                                    </button>
                                 </div>
                             `;
                         }).join('')}
@@ -686,48 +627,39 @@
             `;
         }
 
-        // --- VIEW 2.1: SECTION DETAIL VIEW ---
         function openSectionDetail(secId) {
             switchView('seccion-detalle', secId);
         }
 
         function renderSectionDetailView(secId) {
             const sec = appState.sections.find(s => s.id === secId);
-            if (!sec) return `<div class="text-slate-400">Sección no encontrada.</div>`;
+            if (!sec) return `<div class="text-xs text-mutetext">Sección no encontrada.</div>`;
 
             const sectionIdeas = appState.ideas.filter(i => i.sectionId === secId);
 
             return `
-                <div class="space-y-6 max-w-7xl mx-auto fade-in">
-                    <!-- Section Header Box -->
-                    <div class="bg-cardbg border border-bordercolor rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div class="flex items-center space-x-4">
-                            <span class="text-4xl">${sec.icon || '📁'}</span>
+                <div class="space-y-5 max-w-6xl mx-auto fade-in">
+                    <div class="bg-cardbg border border-bordercolor rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-3xl">${sec.icon || '📁'}</span>
                             <div>
-                                <h3 class="text-xl font-bold text-white">${sec.name}</h3>
-                                <p class="text-xs text-mutetext mt-1">${sec.description || 'Sin descripción'}</p>
+                                <h3 class="text-sm font-bold text-white">${sec.name}</h3>
+                                <p class="text-xs text-mutetext">${sec.description || 'Sin descripción'}</p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <button onclick="switchView('secciones')" class="px-4 py-2 bg-darkbg border border-bordercolor text-slate-300 hover:text-white rounded-xl text-xs font-semibold transition-colors">
-                                Volver a Secciones
+                        <div class="flex items-center space-x-2">
+                            <button onclick="switchView('secciones')" class="px-3 py-1.5 bg-darkbg border border-bordercolor text-slate-300 rounded-lg text-xs hover:text-white transition-colors">
+                                Volver
                             </button>
-                            <button onclick="openIdeaModalWithSection('${secId}')" class="px-4 py-2 bg-cyanaccent hover:bg-cyanhover text-darkbg rounded-xl text-xs font-semibold transition-colors shadow-sm">
-                                + Añadir Idea aquí
+                            <button onclick="openIdeaModalWithSection('${secId}')" class="px-3 py-1.5 bg-cyanaccent hover:bg-cyanhover text-darkbg font-semibold rounded-lg text-xs transition-colors">
+                                + Añadir Idea
                             </button>
                         </div>
                     </div>
 
-                    <!-- Filter & List -->
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <h4 class="text-sm font-bold text-slate-300 uppercase tracking-wide">Ideas en esta sección (${sectionIdeas.length})</h4>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            ${sectionIdeas.length === 0 ? '<div class="col-span-full py-12 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-2xl">No hay ideas en esta sección todavía.</div>' :
-                              sectionIdeas.map(idea => renderIdeaCard(idea)).join('')}
-                        </div>
+                    <div class="space-y-2">
+                        ${sectionIdeas.length === 0 ? '<div class="py-12 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-xl">No hay ideas creadas en esta sección.</div>' :
+                          sectionIdeas.map(idea => renderIdeaRow(idea)).join('')}
                     </div>
                 </div>
             `;
@@ -738,26 +670,26 @@
             const filteredIdeas = getFilteredAndSortedIdeas();
 
             return `
-                <div class="space-y-6 max-w-7xl mx-auto fade-in">
+                <div class="space-y-4 max-w-6xl mx-auto fade-in">
                     <!-- Filter Toolbar -->
-                    <div class="bg-cardbg border border-bordercolor rounded-2xl p-4 flex flex-col md:flex-row gap-3 items-center justify-between">
-                        <div class="w-full md:w-auto flex-1 flex flex-col sm:flex-row gap-3">
+                    <div class="bg-cardbg border border-bordercolor rounded-xl p-3 flex flex-col md:flex-row gap-2.5 items-center justify-between">
+                        <div class="w-full md:w-auto flex-1 flex flex-col sm:flex-row gap-2">
                             <!-- Local Search -->
                             <div class="relative flex-1">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-mutetext">
+                                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-mutetext">
                                     <i class="fa-solid fa-magnifying-glass text-xs"></i>
                                 </span>
-                                <input type="text" id="filterSearch" value="${appState.searchQuery}" oninput="appState.searchQuery=this.value; renderAllIdeasGrid();" placeholder="Filtrar ideas..." class="w-full pl-9 pr-4 py-2 bg-darkbg border border-bordercolor rounded-xl text-xs text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
+                                <input type="text" id="filterSearch" value="${appState.searchQuery}" oninput="appState.searchQuery=this.value; renderAllIdeasGrid();" placeholder="Filtrar por nombre..." class="w-full pl-8 pr-3 py-1.5 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 placeholder-mutetext focus:outline-none focus:border-cyanaccent">
                             </div>
 
                             <!-- Section Filter -->
-                            <select id="filterSectionSelect" onchange="appState.filterSection=this.value; renderAllIdeasGrid();" class="px-3 py-2 bg-darkbg border border-bordercolor rounded-xl text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
+                            <select id="filterSectionSelect" onchange="appState.filterSection=this.value; renderAllIdeasGrid();" class="px-2.5 py-1.5 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
                                 <option value="all">Todas las Secciones</option>
                                 ${appState.sections.map(s => `<option value="${s.id}" ${appState.filterSection === s.id ? 'selected' : ''}>${s.icon || ''} ${s.name}</option>`).join('')}
                             </select>
 
                             <!-- Status Filter -->
-                            <select id="filterStatusSelect" onchange="appState.filterStatus=this.value; renderAllIdeasGrid();" class="px-3 py-2 bg-darkbg border border-bordercolor rounded-xl text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
+                            <select id="filterStatusSelect" onchange="appState.filterStatus=this.value; renderAllIdeasGrid();" class="px-2.5 py-1.5 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
                                 <option value="all" ${appState.filterStatus === 'all' ? 'selected' : ''}>Todos los Estados</option>
                                 <option value="Pendiente" ${appState.filterStatus === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
                                 <option value="En proceso" ${appState.filterStatus === 'En proceso' ? 'selected' : ''}>En proceso</option>
@@ -767,8 +699,8 @@
 
                         <!-- Sorting -->
                         <div class="w-full md:w-auto flex items-center justify-between md:justify-end space-x-2">
-                            <span class="text-xs text-mutetext whitespace-nowrap">Ordenar:</span>
-                            <select id="sortSelect" onchange="appState.sortBy=this.value; renderAllIdeasGrid();" class="px-3 py-2 bg-darkbg border border-bordercolor rounded-xl text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
+                            <span class="text-[10px] text-mutetext uppercase">Ordenar:</span>
+                            <select id="sortSelect" onchange="appState.sortBy=this.value; renderAllIdeasGrid();" class="px-2.5 py-1.5 bg-darkbg border border-bordercolor rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyanaccent">
                                 <option value="newest" ${appState.sortBy === 'newest' ? 'selected' : ''}>Más nuevas</option>
                                 <option value="oldest" ${appState.sortBy === 'oldest' ? 'selected' : ''}>Más antiguas</option>
                                 <option value="name" ${appState.sortBy === 'name' ? 'selected' : ''}>Nombre (A-Z)</option>
@@ -777,10 +709,10 @@
                         </div>
                     </div>
 
-                    <!-- Ideas Grid -->
-                    <div id="allIdeasGridContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        ${filteredIdeas.length === 0 ? '<div class="col-span-full py-16 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-2xl">No se encontraron ideas con los filtros seleccionados.</div>' :
-                          filteredIdeas.map(idea => renderIdeaCard(idea)).join('')}
+                    <!-- Idea List -->
+                    <div id="allIdeasGridContainer" class="space-y-2">
+                        ${filteredIdeas.length === 0 ? '<div class="py-12 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-xl">No se encontraron ideas.</div>' :
+                          filteredIdeas.map(idea => renderIdeaRow(idea)).join('')}
                     </div>
                 </div>
             `;
@@ -791,64 +723,51 @@
             if (!container) return;
             const filteredIdeas = getFilteredAndSortedIdeas();
             container.innerHTML = filteredIdeas.length === 0 ? 
-                '<div class="col-span-full py-16 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-2xl">No se encontraron ideas con los filtros seleccionados.</div>' :
-                filteredIdeas.map(idea => renderIdeaCard(idea)).join('');
+                '<div class="py-12 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-xl">No se encontraron ideas.</div>' :
+                filteredIdeas.map(idea => renderIdeaRow(idea)).join('');
         }
 
         function getFilteredAndSortedIdeas() {
             let result = [...appState.ideas];
 
-            // Search query
             if (appState.searchQuery && appState.searchQuery.trim() !== '') {
                 const q = appState.searchQuery.toLowerCase();
-                result = result.filter(i => 
-                    i.title.toLowerCase().includes(q) || 
-                    (i.hook && i.hook.toLowerCase().includes(q)) || 
-                    (i.notes && i.notes.toLowerCase().includes(q))
-                );
+                result = result.filter(i => i.title.toLowerCase().includes(q));
             }
 
-            // Section filter
             if (appState.filterSection !== 'all') {
                 result = result.filter(i => i.sectionId === appState.filterSection);
             }
 
-            // Status filter
             if (appState.filterStatus !== 'all') {
                 result = result.filter(i => i.status === appState.filterStatus);
             }
 
-            // Sorting
             result.sort((a, b) => {
-                if (appState.sortBy === 'newest') {
-                    return new Date(b.createdAt) - new Date(a.createdAt);
-                } else if (appState.sortBy === 'oldest') {
-                    return new Date(a.createdAt) - new Date(b.createdAt);
-                } else if (appState.sortBy === 'name') {
-                    return a.title.localeCompare(b.title);
-                } else if (appState.sortBy === 'status') {
-                    return a.status.localeCompare(b.status);
-                }
+                if (appState.sortBy === 'newest') return new Date(b.createdAt) - new Date(a.createdAt);
+                if (appState.sortBy === 'oldest') return new Date(a.createdAt) - new Date(b.createdAt);
+                if (appState.sortBy === 'name') return a.title.localeCompare(b.title);
+                if (appState.sortBy === 'status') return a.status.localeCompare(b.status);
                 return 0;
             });
 
             return result;
         }
 
-        // --- VIEW 4: TERMINATED IDEAS HISTORY ---
+        // --- VIEW 4: TERMINATED IDEAS ---
         function renderTerminatedView() {
             const terminatedIdeas = appState.ideas.filter(i => i.status === 'Terminada');
 
             return `
-                <div class="space-y-6 max-w-7xl mx-auto fade-in">
-                    <div class="bg-cardbg border border-bordercolor rounded-2xl p-6">
-                        <h3 class="text-base font-bold text-white">Historial de Ideas Terminadas</h3>
-                        <p class="text-xs text-mutetext mt-1">Consulta todos los vídeos que ya has producido para TikTok y evita repetir contenido.</p>
+                <div class="space-y-4 max-w-6xl mx-auto fade-in">
+                    <div class="bg-cardbg border border-bordercolor rounded-xl p-4">
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Historial de Ideas Terminadas</h3>
+                        <p class="text-xs text-mutetext mt-0.5">Consulta vídeos grabados y publicados para TikTok.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        ${terminatedIdeas.length === 0 ? '<div class="col-span-full py-16 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-2xl">Todavía no has marcado ninguna idea como terminada.</div>' :
-                          terminatedIdeas.map(idea => renderIdeaCard(idea)).join('')}
+                    <div class="space-y-2">
+                        ${terminatedIdeas.length === 0 ? '<div class="py-12 text-center text-mutetext text-xs bg-cardbg border border-bordercolor rounded-xl">No hay ideas terminadas todavía.</div>' :
+                          terminatedIdeas.map(idea => renderIdeaRow(idea)).join('')}
                     </div>
                 </div>
             `;
@@ -857,141 +776,97 @@
         // --- VIEW 5: CONFIG & BACKUPS ---
         function renderConfigView() {
             return `
-                <div class="space-y-6 max-w-4xl mx-auto fade-in">
-                    <!-- Export Box -->
-                    <div class="bg-cardbg border border-bordercolor rounded-2xl p-6 space-y-4">
+                <div class="space-y-4 max-w-3xl mx-auto fade-in">
+                    <div class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
                         <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 rounded-xl bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent">
-                                <i class="fa-solid fa-download"></i>
-                            </div>
+                            <i class="fa-solid fa-download text-cyanaccent text-lg"></i>
                             <div>
-                                <h3 class="text-base font-bold text-white">Exportar Copia de Seguridad</h3>
-                                <p class="text-xs text-mutetext">Descarga todas tus secciones e ideas en un archivo JSON seguro.</p>
+                                <h3 class="text-xs font-bold text-white uppercase tracking-wider">Exportar Copia de Seguridad</h3>
+                                <p class="text-xs text-mutetext">Descarga tus secciones e ideas en formato JSON.</p>
                             </div>
                         </div>
-                        <button onclick="exportJSON()" class="px-5 py-2.5 bg-cyanaccent hover:bg-cyanhover text-darkbg font-semibold rounded-xl text-xs transition-colors shadow-sm">
-                            Exportar Archivo JSON
+                        <button onclick="exportJSON()" class="px-4 py-1.5 bg-cyanaccent hover:bg-cyanhover text-darkbg font-semibold rounded-lg text-xs transition-colors shadow-sm">
+                            Exportar JSON
                         </button>
                     </div>
 
-                    <!-- Import Box -->
-                    <div class="bg-cardbg border border-bordercolor rounded-2xl p-6 space-y-4">
+                    <div class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
                         <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 rounded-xl bg-cyanaccent/10 border border-cyanaccent/30 flex items-center justify-center text-cyanaccent">
-                                <i class="fa-solid fa-upload"></i>
-                            </div>
+                            <i class="fa-solid fa-upload text-cyanaccent text-lg"></i>
                             <div>
-                                <h3 class="text-base font-bold text-white">Importar Copia de Seguridad</h3>
-                                <p class="text-xs text-mutetext">Restaura tus datos desde un archivo JSON previo. Los datos actuales serán reemplazados.</p>
+                                <h3 class="text-xs font-bold text-white uppercase tracking-wider">Importar Copia de Seguridad</h3>
+                                <p class="text-xs text-mutetext">Restaura secciones e ideas desde un archivo JSON.</p>
                             </div>
                         </div>
-                        <div>
-                            <input type="file" id="importFile" accept=".json" onchange="importJSON(event)" class="block w-full text-xs text-mutetext file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-darkbg file:text-slate-200 hover:file:bg-cardhover file:cursor-pointer border border-bordercolor rounded-xl p-2 bg-darkbg">
-                        </div>
+                        <input type="file" id="importFile" accept=".json" onchange="importJSON(event)" class="block w-full text-xs text-mutetext file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-darkbg file:text-slate-200 hover:file:bg-cardhover border border-bordercolor rounded-lg p-1.5 bg-darkbg">
                     </div>
 
-                    <!-- Factory Reset Box -->
-                    <div class="bg-cardbg border border-rose-500/30 rounded-2xl p-6 space-y-4">
+                    <div class="bg-cardbg border border-rose-500/20 rounded-xl p-5 space-y-3">
                         <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                            </div>
+                            <i class="fa-solid fa-triangle-exclamation text-rose-400 text-lg"></i>
                             <div>
-                                <h3 class="text-base font-bold text-white">Restablecer Datos de Fábrica</h3>
-                                <p class="text-xs text-mutetext">Borra todos los cambios y vuelve a cargar las secciones y ejemplos iniciales.</p>
+                                <h3 class="text-xs font-bold text-white uppercase tracking-wider">Restablecer Datos</h3>
+                                <p class="text-xs text-mutetext">Vuelve a cargar los datos predeterminados de fábrica.</p>
                             </div>
                         </div>
-                        <button onclick="factoryReset()" class="px-5 py-2.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-semibold rounded-xl text-xs transition-colors">
-                            Restablecer Aplicación
+                        <button onclick="factoryReset()" class="px-4 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-semibold rounded-lg text-xs transition-colors">
+                            Restablecer
                         </button>
                     </div>
                 </div>
             `;
         }
 
-        // --- IDEA CARD COMPONENTS ---
-        function renderIdeaCard(idea) {
+        function renderIdeaRow(idea) {
             const sec = appState.sections.find(s => s.id === idea.sectionId);
             const secName = sec ? `${sec.icon || ''} ${sec.name}` : 'Sin sección';
 
-            let statusBadgeClass = 'bg-amber-400/10 text-amber-400 border-amber-400/30';
-            if (idea.status === 'Terminada') statusBadgeClass = 'bg-emerald-400/10 text-emerald-400 border-emerald-400/30';
-            if (idea.status === 'En proceso') statusBadgeClass = 'bg-cyanaccent/10 text-cyanaccent border-cyanaccent/30';
+            let statusBadgeClass = 'bg-amber-400/10 text-amber-400 border-amber-400/20';
+            if (idea.status === 'Terminada') statusBadgeClass = 'bg-emerald-400/10 text-emerald-400 border-emerald-400/20';
+            if (idea.status === 'En proceso') statusBadgeClass = 'bg-cyanaccent/10 text-cyanaccent border-cyanaccent/20';
 
             return `
-                <div class="bg-cardbg border border-bordercolor rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-cyanaccent/40 transition-all shadow-sm">
-                    <div class="space-y-3">
-                        <div class="flex items-start justify-between gap-2">
-                            <span class="text-[10px] font-semibold px-2.5 py-1 rounded-full border ${statusBadgeClass}">${idea.status}</span>
-                            <div class="flex items-center space-x-1">
-                                <button onclick="toggleQuickStatus('${idea.id}')" class="p-1.5 text-mutetext hover:text-emerald-400 transition-colors" title="${idea.status === 'Terminada' ? 'Marcar pendiente' : 'Marcar terminada'}">
-                                    <i class="fa-solid ${idea.status === 'Terminada' ? 'fa-rotate-left' : 'fa-check'} text-xs"></i>
-                                </button>
-                                <button onclick="editIdea('${idea.id}')" class="p-1.5 text-mutetext hover:text-white transition-colors" title="Editar idea">
-                                    <i class="fa-solid fa-pen text-xs"></i>
-                                </button>
-                                <button onclick="duplicateIdea('${idea.id}')" class="p-1.5 text-mutetext hover:text-white transition-colors" title="Duplicar idea">
-                                    <i class="fa-solid fa-copy text-xs"></i>
-                                </button>
-                                <button onclick="deleteIdea('${idea.id}')" class="p-1.5 text-mutetext hover:text-rose-400 transition-colors" title="Eliminar idea">
-                                    <i class="fa-solid fa-trash text-xs"></i>
-                                </button>
+                <div class="bg-cardbg border border-bordercolor hover:border-cyanaccent/30 rounded-xl px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 transition-all">
+                    <div class="flex items-center space-x-3 min-w-0">
+                        <!-- Quick status toggle -->
+                        <button onclick="toggleQuickStatus('${idea.id}')" class="w-5 h-5 rounded-md border border-bordercolor flex items-center justify-center transition-colors ${idea.status === 'Terminada' ? 'bg-emerald-400/20 border-emerald-400 text-emerald-400' : 'hover:border-cyanaccent text-transparent'}" title="Marcar estado">
+                            <i class="fa-solid fa-check text-[10px]"></i>
+                        </button>
+
+                        <div class="min-w-0">
+                            <h4 class="text-xs font-semibold text-white truncate ${idea.status === 'Terminada' ? 'line-through text-slate-400' : ''}">${idea.title}</h4>
+                            <div class="flex items-center space-x-2 mt-0.5 text-[10px] text-mutetext">
+                                <span>${secName}</span>
+                                <span>·</span>
+                                <span>Creada: ${new Date(idea.createdAt).toLocaleDateString()}</span>
+                                ${idea.completedAt ? `<span>· Lista: ${new Date(idea.completedAt).toLocaleDateString()}</span>` : ''}
                             </div>
                         </div>
-
-                        <div>
-                            <h4 class="font-bold text-white text-base tracking-tight">${idea.title}</h4>
-                            <p class="text-[11px] text-cyanaccent font-medium mt-0.5">${secName}</p>
-                        </div>
-
-                        ${idea.hook ? `<div class="bg-darkbg/70 border border-bordercolor/60 rounded-xl p-3 text-xs text-slate-300 italic">"${idea.hook}"</div>` : ''}
-                        ${idea.notes ? `<p class="text-xs text-mutetext line-clamp-2">${idea.notes}</p>` : ''}
                     </div>
 
-                    <div class="flex items-center justify-between pt-2 border-t border-bordercolor/60 text-[10px] text-mutetext">
-                        <span>Creada: ${new Date(idea.createdAt).toLocaleDateString()}</span>
-                        ${idea.completedAt ? `<span>Hecha: ${new Date(idea.completedAt).toLocaleDateString()}</span>` : ''}
+                    <div class="flex items-center justify-between sm:justify-end space-x-2">
+                        <span class="text-[9px] font-semibold px-2 py-0.5 rounded-md border ${statusBadgeClass}">${idea.status}</span>
+                        
+                        <div class="flex items-center space-x-1">
+                            <button onclick="editIdea('${idea.id}')" class="p-1.5 text-mutetext hover:text-white transition-colors" title="Editar nombre/sección">
+                                <i class="fa-solid fa-pen text-xs"></i>
+                            </button>
+                            <button onclick="duplicateIdea('${idea.id}')" class="p-1.5 text-mutetext hover:text-white transition-colors" title="Duplicar">
+                                <i class="fa-solid fa-copy text-xs"></i>
+                            </button>
+                            <button onclick="deleteIdea('${idea.id}')" class="p-1.5 text-mutetext hover:text-rose-400 transition-colors" title="Eliminar">
+                                <i class="fa-solid fa-trash text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
         }
 
-        function renderIdeaCardCompact(idea) {
-            const sec = appState.sections.find(s => s.id === idea.sectionId);
-            const secName = sec ? `${sec.icon || ''} ${sec.name}` : '';
-
-            let statusBadgeClass = 'bg-amber-400/10 text-amber-400';
-            if (idea.status === 'Terminada') statusBadgeClass = 'bg-emerald-400/10 text-emerald-400';
-            if (idea.status === 'En proceso') statusBadgeClass = 'bg-cyanaccent/10 text-cyanaccent';
-
-            return `
-                <div class="bg-darkbg/60 border border-bordercolor rounded-xl p-3 flex items-center justify-between gap-3 hover:border-cyanaccent/30 transition-all">
-                    <div class="min-w-0 flex-1">
-                        <div class="flex items-center space-x-2 mb-0.5">
-                            <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full ${statusBadgeClass}">${idea.status}</span>
-                            <span class="text-[10px] text-mutetext truncate">${secName}</span>
-                        </div>
-                        <h4 class="text-xs font-bold text-white truncate">${idea.title}</h4>
-                    </div>
-                    <div class="flex items-center space-x-1">
-                        <button onclick="toggleQuickStatus('${idea.id}')" class="p-1.5 text-mutetext hover:text-emerald-400 transition-colors" title="Cambiar estado">
-                            <i class="fa-solid fa-check text-xs"></i>
-                        </button>
-                        <button onclick="editIdea('${idea.id}')" class="p-1.5 text-mutetext hover:text-white transition-colors" title="Editar">
-                            <i class="fa-solid fa-pen text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- IDEA MODAL & ACTIONS ---
         function openIdeaModal() {
             document.getElementById('ideaModalTitle').innerHTML = `<i class="fa-solid fa-lightbulb text-cyanaccent"></i><span>Nueva Idea de Contenido</span>`;
             document.getElementById('ideaId').value = '';
             document.getElementById('ideaTitle').value = '';
-            document.getElementById('ideaHook').value = '';
-            document.getElementById('ideaNotes').value = '';
             document.getElementById('ideaStatus').value = 'Pendiente';
             
             populateSectionDropdown();
@@ -1010,8 +885,6 @@
             document.getElementById('ideaModalTitle').innerHTML = `<i class="fa-solid fa-pen text-cyanaccent"></i><span>Editar Idea</span>`;
             document.getElementById('ideaId').value = idea.id;
             document.getElementById('ideaTitle').value = idea.title;
-            document.getElementById('ideaHook').value = idea.hook || '';
-            document.getElementById('ideaNotes').value = idea.notes || '';
             document.getElementById('ideaStatus').value = idea.status;
 
             populateSectionDropdown();
@@ -1034,13 +907,10 @@
             const title = document.getElementById('ideaTitle').value.trim();
             const sectionId = document.getElementById('ideaSection').value;
             const status = document.getElementById('ideaStatus').value;
-            const hook = document.getElementById('ideaHook').value.trim();
-            const notes = document.getElementById('ideaNotes').value.trim();
 
             if (!title) return;
 
             if (id) {
-                // Edit
                 const idx = appState.ideas.findIndex(i => i.id === id);
                 if (idx !== -1) {
                     const wasTerminated = appState.ideas[idx].status === 'Terminada';
@@ -1054,26 +924,21 @@
                         title,
                         sectionId,
                         status,
-                        hook,
-                        notes,
                         completedAt
                     };
                 }
-                showToast('Idea actualizada correctamente', 'success');
+                showToast('Idea actualizada');
             } else {
-                // Create
                 const newIdea = {
                     id: 'idea-' + Date.now(),
                     title,
                     sectionId,
                     status,
-                    hook,
-                    notes,
                     createdAt: new Date().toISOString(),
                     completedAt: status === 'Terminada' ? new Date().toISOString() : null
                 };
                 appState.ideas.unshift(newIdea);
-                showToast('Idea creada correctamente', 'success');
+                showToast('Idea guardada');
             }
 
             saveToLocalStorage();
@@ -1088,11 +953,11 @@
             if (idea.status === 'Terminada') {
                 idea.status = 'Pendiente';
                 idea.completedAt = null;
-                showToast('Idea marcada como pendiente', 'info');
+                showToast('Idea reabierta');
             } else {
                 idea.status = 'Terminada';
                 idea.completedAt = new Date().toISOString();
-                showToast('¡Idea marcada como terminada!', 'success');
+                showToast('¡Idea completada!');
             }
 
             saveToLocalStorage();
@@ -1115,7 +980,7 @@
             appState.ideas.unshift(duplicate);
             saveToLocalStorage();
             renderCurrentView();
-            showToast('Idea duplicada correctamente', 'success');
+            showToast('Idea duplicada');
         }
 
         function deleteIdea(id) {
@@ -1125,7 +990,7 @@
             showToast('Idea eliminada', 'info');
         }
 
-        // --- SECTION MODAL & ACTIONS ---
+        // Section Form Actions
         function openSectionModal() {
             document.getElementById('sectionModalTitle').innerHTML = `<i class="fa-solid fa-layer-group text-cyanaccent"></i><span>Nueva Sección</span>`;
             document.getElementById('sectionId').value = '';
@@ -1167,7 +1032,7 @@
                     sec.icon = icon;
                     sec.description = description;
                 }
-                showToast('Sección actualizada', 'success');
+                showToast('Sección actualizada');
             } else {
                 const newSec = {
                     id: 'sec-' + Date.now(),
@@ -1176,7 +1041,7 @@
                     description
                 };
                 appState.sections.push(newSec);
-                showToast('Sección creada con éxito', 'success');
+                showToast('Sección creada');
             }
 
             saveToLocalStorage();
@@ -1185,24 +1050,17 @@
         }
 
         function deleteSection(id) {
-            const ideasInSec = appState.ideas.filter(i => i.sectionId === id).length;
-            if (ideasInSec > 0) {
-                if (!confirm(`Esta sección contiene ${ideasInSec} ideas. ¿Estás seguro de eliminarla? Las ideas quedarán sin sección o se eliminarán.`)) {
-                    return;
-                }
-            }
             appState.sections = appState.sections.filter(s => s.id !== id);
-            // Reassign or delete ideas
             appState.ideas = appState.ideas.filter(i => i.sectionId !== id);
             saveToLocalStorage();
             renderCurrentView();
             showToast('Sección eliminada', 'info');
         }
 
-        // --- BACKUPS & CONFIG ACTIONS ---
+        // Backups
         function exportJSON() {
             const data = {
-                version: '1.0',
+                version: '2.0',
                 exportDate: new Date().toISOString(),
                 sections: appState.sections,
                 ideas: appState.ideas
@@ -1215,7 +1073,7 @@
             document.body.appendChild(downloadAnchor);
             downloadAnchor.click();
             downloadAnchor.remove();
-            showToast('Copia de seguridad exportada con éxito', 'success');
+            showToast('Backup exportado');
         }
 
         function importJSON(e) {
@@ -1226,20 +1084,15 @@
             reader.onload = function(event) {
                 try {
                     const parsed = JSON.parse(event.target.result);
-                    if (!parsed.sections || !parsed.ideas) {
-                        throw new Error("Estructura de archivo inválida.");
-                    }
+                    if (!parsed.sections || !parsed.ideas) throw new Error("Archivo no válido");
 
-                    if (confirm(`¿Estás seguro de importar este archivo? Se reemplazarán tus ${appState.ideas.length} ideas actuales.`)) {
-                        appState.sections = parsed.sections;
-                        appState.ideas = parsed.ideas;
-                        saveToLocalStorage();
-                        renderCurrentView();
-                        showToast('Copia de seguridad importada con éxito', 'success');
-                    }
+                    appState.sections = parsed.sections;
+                    appState.ideas = parsed.ideas;
+                    saveToLocalStorage();
+                    renderCurrentView();
+                    showToast('Backup importado correctamente');
                 } catch (err) {
-                    console.error(err);
-                    showToast('Error al importar archivo JSON. Verifique la estructura.', 'error');
+                    showToast('Error al importar JSON', 'error');
                 }
                 e.target.value = '';
             };
@@ -1247,16 +1100,13 @@
         }
 
         function factoryReset() {
-            if (confirm("¿Estás completamente seguro de restablecer la aplicación a los datos de fábrica? Se perderán las ideas personalizadas.")) {
-                appState.sections = DEFAULT_SECTIONS;
-                appState.ideas = DEFAULT_IDEAS;
-                saveToLocalStorage();
-                renderCurrentView();
-                showToast('Aplicación restablecida a valores iniciales', 'info');
-            }
+            appState.sections = DEFAULT_SECTIONS;
+            appState.ideas = DEFAULT_IDEAS;
+            saveToLocalStorage();
+            renderCurrentView();
+            showToast('Datos de fábrica cargados', 'info');
         }
 
-        // --- GLOBAL SEARCH HANDLER ---
         function handleGlobalSearch(val) {
             appState.searchQuery = val;
             if (appState.currentView !== 'todas') {
@@ -1266,7 +1116,6 @@
             }
         }
 
-        // --- TOAST NOTIFICATIONS ---
         function showToast(message, type = 'success') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
@@ -1281,18 +1130,17 @@
                 icon = 'fa-circle-info text-cyanaccent';
             }
 
-            toast.className = `pointer-events-auto flex items-center space-x-3 px-4 py-3 rounded-xl border ${bgClass} shadow-xl fade-in text-xs font-medium`;
+            toast.className = `pointer-events-auto flex items-center space-x-2.5 px-3 py-2 rounded-lg border ${bgClass} shadow-lg fade-in text-xs font-medium`;
             toast.innerHTML = `<i class="fa-solid ${icon}"></i><span>${message}</span>`;
             
             container.appendChild(toast);
             setTimeout(() => {
                 toast.style.opacity = '0';
-                toast.style.transition = 'opacity 0.3s ease';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+                toast.style.transition = 'opacity 0.2s ease';
+                setTimeout(() => toast.remove(), 200);
+            }, 2500);
         }
 
-        // Run on load
         window.onload = function() {
             initApp();
         };
